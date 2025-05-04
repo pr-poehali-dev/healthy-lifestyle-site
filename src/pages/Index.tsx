@@ -6,6 +6,9 @@ import Icon from "@/components/ui/icon";
 import { HeroSection } from "@/components/HeroSection";
 import { HealthCategories } from "@/components/HealthCategories";
 import { HealthTips } from "@/components/HealthTips";
+import { OurMission } from "@/components/OurMission";
+import { CalorieCalculator } from "@/components/CalorieCalculator";
+import { Testimonials } from "@/components/Testimonials";
 
 const Index = () => {
   return (
@@ -33,8 +36,46 @@ const Index = () => {
 
       <main>
         <HeroSection />
+        <OurMission />
         <HealthCategories />
+        
+        <section className="container mx-auto px-4 py-16">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">Инструменты для здоровой жизни</h2>
+              <p className="text-gray-700 mb-4">
+                Используйте наши калькуляторы для отслеживания прогресса и достижения ваших целей в области здоровья.
+              </p>
+              <p className="text-gray-700 mb-6">
+                Рассчитайте свою суточную потребность в калориях на основе возраста, пола, веса и уровня активности.
+              </p>
+              <ul className="space-y-2 mb-6">
+                <li className="flex items-center">
+                  <Icon name="CheckCircle" className="text-primary mr-2" size={20} />
+                  <span>Точные расчеты на основе формулы Харриса-Бенедикта</span>
+                </li>
+                <li className="flex items-center">
+                  <Icon name="CheckCircle" className="text-primary mr-2" size={20} />
+                  <span>Учет индивидуальных параметров</span>
+                </li>
+                <li className="flex items-center">
+                  <Icon name="CheckCircle" className="text-primary mr-2" size={20} />
+                  <span>Корректировка под различные уровни активности</span>
+                </li>
+              </ul>
+              <Button size="lg">
+                <Icon name="Calculator" className="mr-2" size={16} />
+                Другие калькуляторы
+              </Button>
+            </div>
+            <div>
+              <CalorieCalculator />
+            </div>
+          </div>
+        </section>
+        
         <HealthTips />
+        <Testimonials />
         
         <section className="container mx-auto px-4 py-16">
           <h2 className="text-2xl font-bold text-center mb-8">Присоединяйтесь к нашему сообществу</h2>
