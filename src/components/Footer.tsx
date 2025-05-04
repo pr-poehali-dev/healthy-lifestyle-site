@@ -1,87 +1,93 @@
 
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import Icon from "@/components/ui/icon";
+import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 
-export const Footer = () => {
+const Footer = () => {
   return (
-    <footer className="bg-gray-50 pt-12 pb-6">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Icon name="Heart" className="text-primary" size={28} />
-              <span className="text-xl font-bold text-primary">ЗдоровьеПлюс</span>
-            </div>
-            <p className="text-gray-600 mb-4">
-              Ваш проводник в мир здорового образа жизни, долголетия и благополучия.
+    <footer className="bg-muted/30 border-t">
+      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold text-primary">ЗдравЖизнь</h3>
+            <p className="text-muted-foreground">
+              Ваш проводник в мир здорового образа жизни.
             </p>
-            <div className="flex gap-4">
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Icon name="Instagram" />
-              </Button>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Icon name="Facebook" />
-              </Button>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Icon name="Twitter" />
-              </Button>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Icon name="Youtube" />
-              </Button>
+            <div className="flex space-x-4">
+              <a href="#" className="text-muted-foreground hover:text-primary">
+                <Facebook size={20} />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-primary">
+                <Twitter size={20} />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-primary">
+                <Instagram size={20} />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-primary">
+                <Youtube size={20} />
+              </a>
             </div>
           </div>
           
-          <div>
-            <h3 className="font-bold mb-4">Разделы сайта</h3>
+          <div className="space-y-4">
+            <h4 className="font-semibold text-lg">Разделы</h4>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-gray-600 hover:text-primary transition-colors">Главная</Link></li>
-              <li><Link to="/nutrition" className="text-gray-600 hover:text-primary transition-colors">Питание</Link></li>
-              <li><Link to="/fitness" className="text-gray-600 hover:text-primary transition-colors">Физическая активность</Link></li>
-              <li><Link to="/sleep" className="text-gray-600 hover:text-primary transition-colors">Здоровый сон</Link></li>
-              <li><Link to="/blog" className="text-gray-600 hover:text-primary transition-colors">Блог</Link></li>
+              <li>
+                <Link to="#nutrition" className="text-muted-foreground hover:text-primary">Питание</Link>
+              </li>
+              <li>
+                <Link to="#exercises" className="text-muted-foreground hover:text-primary">Упражнения</Link>
+              </li>
+              <li>
+                <Link to="#mental-health" className="text-muted-foreground hover:text-primary">Ментальное здоровье</Link>
+              </li>
+              <li>
+                <Link to="#recipes" className="text-muted-foreground hover:text-primary">Рецепты</Link>
+              </li>
             </ul>
           </div>
           
-          <div>
-            <h3 className="font-bold mb-4">Полезные ссылки</h3>
+          <div className="space-y-4">
+            <h4 className="font-semibold text-lg">Поддержка</h4>
             <ul className="space-y-2">
-              <li><Link to="/about" className="text-gray-600 hover:text-primary transition-colors">О нас</Link></li>
-              <li><Link to="/experts" className="text-gray-600 hover:text-primary transition-colors">Наши эксперты</Link></li>
-              <li><Link to="/faq" className="text-gray-600 hover:text-primary transition-colors">Частые вопросы</Link></li>
-              <li><Link to="/contact" className="text-gray-600 hover:text-primary transition-colors">Связаться с нами</Link></li>
-              <li><Link to="/privacy" className="text-gray-600 hover:text-primary transition-colors">Политика конфиденциальности</Link></li>
+              <li>
+                <Link to="#faq" className="text-muted-foreground hover:text-primary">Частые вопросы</Link>
+              </li>
+              <li>
+                <Link to="#contact" className="text-muted-foreground hover:text-primary">Связаться с нами</Link>
+              </li>
+              <li>
+                <Link to="#privacy" className="text-muted-foreground hover:text-primary">Политика конфиденциальности</Link>
+              </li>
+              <li>
+                <Link to="#terms" className="text-muted-foreground hover:text-primary">Условия использования</Link>
+              </li>
             </ul>
           </div>
           
-          <div>
-            <h3 className="font-bold mb-4">Подпишитесь на рассылку</h3>
-            <p className="text-gray-600 mb-4">Получайте новые статьи, рецепты и советы экспертов</p>
-            <div className="flex">
+          <div className="space-y-4">
+            <h4 className="font-semibold text-lg">Подписка</h4>
+            <p className="text-muted-foreground">Подпишитесь на нашу рассылку, чтобы получать советы и новости о здоровом образе жизни.</p>
+            <div className="flex mt-2">
               <input 
                 type="email" 
-                placeholder="Ваш email" 
-                className="px-4 py-2 border rounded-l-md focus:outline-none focus:ring-2 focus:ring-primary flex-1"
+                placeholder="Ваш email"
+                className="px-4 py-2 border border-border rounded-l-md w-full focus:outline-none focus:ring-2 focus:ring-primary"
               />
-              <Button className="rounded-l-none">
-                <Icon name="Send" size={16} />
-              </Button>
+              <button className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-r-md">
+                Подписаться
+              </button>
             </div>
           </div>
         </div>
         
-        <Separator />
-        
-        <div className="pt-6 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
-          <p>© 2025 ЗдоровьеПлюс. Все права защищены.</p>
-          <div className="flex gap-4 mt-4 md:mt-0">
-            <Link to="/terms" className="hover:text-primary transition-colors">Условия использования</Link>
-            <Link to="/privacy" className="hover:text-primary transition-colors">Конфиденциальность</Link>
-            <Link to="/cookies" className="hover:text-primary transition-colors">Политика cookies</Link>
-          </div>
+        <div className="mt-12 pt-8 border-t border-border">
+          <p className="text-center text-muted-foreground">
+            © {new Date().getFullYear()} ЗдравЖизнь. Все права защищены.
+          </p>
         </div>
       </div>
     </footer>
   );
 };
+
+export default Footer;

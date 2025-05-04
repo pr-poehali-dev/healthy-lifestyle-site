@@ -1,51 +1,61 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import Icon from "@/components/ui/icon";
+import { Heart, Utensils, Dumbbell, Brain } from "lucide-react";
 
 const categories = [
   {
-    id: 1,
     title: "Здоровое питание",
-    description: "Правильное питание - основа здорового образа жизни",
-    icon: "Apple",
-    color: "bg-red-100",
-    iconColor: "text-red-500"
+    description: "Узнайте о принципах правильного питания и сбалансированной диеты для здорового тела.",
+    icon: Utensils,
+    color: "text-primary bg-primary/10"
   },
   {
-    id: 2,
     title: "Физическая активность",
-    description: "Регулярные тренировки для поддержания тонуса",
-    icon: "Dumbbell",
-    color: "bg-blue-100",
-    iconColor: "text-blue-500"
+    description: "Эффективные упражнения и тренировки для поддержания физической формы и укрепления тела.",
+    icon: Dumbbell,
+    color: "text-accent bg-accent/10"
   },
   {
-    id: 3,
-    title: "Психологическое здоровье",
-    description: "Методики для снижения стресса и улучшения настроения",
-    icon: "Brain",
-    color: "bg-purple-100",
-    iconColor: "text-purple-500"
+    title: "Ментальное здоровье",
+    description: "Советы и техники для снижения стресса, медитации и улучшения психического благополучия.",
+    icon: Brain,
+    color: "text-secondary bg-secondary/10"
+  },
+  {
+    title: "Здоровье в целом",
+    description: "Комплексный подход к здоровью, профилактика заболеваний и поддержание иммунитета.",
+    icon: Heart,
+    color: "text-red-500 bg-red-500/10"
   }
 ];
 
-export const HealthCategories = () => {
+const HealthCategories = () => {
   return (
-    <section className="container mx-auto px-4 py-16">
-      <h2 className="text-3xl font-bold text-center mb-12">Ключевые аспекты здорового образа жизни</h2>
-      <div className="grid md:grid-cols-3 gap-8">
-        {categories.map((category) => (
-          <Card key={category.id} className="hover-scale">
-            <CardContent className="p-6 flex flex-col items-center text-center">
-              <div className={`${category.color} p-4 rounded-full mb-4`}>
-                <Icon name={category.icon} className={category.iconColor} size={32} />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">{category.title}</h3>
-              <p className="text-gray-500">{category.description}</p>
-            </CardContent>
-          </Card>
-        ))}
+    <section className="py-16 bg-muted/30" id="categories">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold">Основные направления здорового образа жизни</h2>
+          <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+            Исследуйте различные аспекты здорового образа жизни и найдите то, что поможет вам достичь вашей лучшей версии.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {categories.map((category, index) => (
+            <Card key={index} className="border hover:shadow-md transition-shadow duration-300 h-full">
+              <CardContent className="pt-6">
+                <div className={`rounded-full p-3 inline-flex mb-4 ${category.color}`}>
+                  <category.icon size={24} />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">{category.title}</h3>
+                <p className="text-muted-foreground">{category.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
   );
 };
+
+export default HealthCategories;
