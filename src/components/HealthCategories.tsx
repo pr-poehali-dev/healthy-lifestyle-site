@@ -1,42 +1,45 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart, Utensils, Dumbbell, Brain } from "lucide-react";
 
 const categories = [
   {
     title: "Здоровое питание",
-    description: "Узнайте о принципах правильного питания и сбалансированной диеты для здорового тела.",
-    icon: Utensils,
-    color: "text-primary bg-primary/10"
+    description: "Сбалансированное питание для поддержания энергии и здоровья организма.",
+    icon: "🥗",
+    color: "bg-green-100",
+    iconColor: "text-green-600"
   },
   {
     title: "Физическая активность",
-    description: "Эффективные упражнения и тренировки для поддержания физической формы и укрепления тела.",
-    icon: Dumbbell,
-    color: "text-accent bg-accent/10"
+    description: "Эффективные тренировки для укрепления тела и повышения выносливости.",
+    icon: "💪",
+    color: "bg-blue-100",
+    iconColor: "text-blue-600"
   },
   {
     title: "Ментальное здоровье",
-    description: "Советы и техники для снижения стресса, медитации и улучшения психического благополучия.",
-    icon: Brain,
-    color: "text-secondary bg-secondary/10"
+    description: "Практики для снижения стресса и поддержания психологического равновесия.",
+    icon: "🧠",
+    color: "bg-purple-100",
+    iconColor: "text-purple-600"
   },
   {
-    title: "Здоровье в целом",
-    description: "Комплексный подход к здоровью, профилактика заболеваний и поддержание иммунитета.",
-    icon: Heart,
-    color: "text-red-500 bg-red-500/10"
+    title: "Здоровый сон",
+    description: "Рекомендации для качественного отдыха и восстановления организма.",
+    icon: "😴",
+    color: "bg-indigo-100",
+    iconColor: "text-indigo-600"
   }
 ];
 
 const HealthCategories = () => {
   return (
-    <section className="py-16 bg-muted/30" id="categories">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 bg-muted/40" id="categories">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold">Основные направления здорового образа жизни</h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-            Исследуйте различные аспекты здорового образа жизни и найдите то, что поможет вам достичь вашей лучшей версии.
+            Исследуйте различные аспекты здорового образа жизни и найдите то, что поможет вам достичь гармонии и баланса.
           </p>
         </div>
         
@@ -45,7 +48,7 @@ const HealthCategories = () => {
             <Card key={index} className="border hover:shadow-md transition-shadow duration-300 h-full">
               <CardContent className="pt-6">
                 <div className={`rounded-full p-3 inline-flex mb-4 ${category.color}`}>
-                  <category.icon size={24} />
+                  <span className={`text-2xl ${category.iconColor}`}>{category.icon}</span>
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{category.title}</h3>
                 <p className="text-muted-foreground">{category.description}</p>

@@ -1,116 +1,71 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useMobile } from "@/hooks/use-mobile";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 
 const Navbar = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const isMobile = useMobile();
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-background sticky top-0 z-50 border-b shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
-          <div className="flex items-center">
-            <Link to="/" className="flex items-center">
-              <span className="text-2xl font-bold text-primary">ЗдравЖизнь</span>
-            </Link>
-          </div>
+    <header className="border-b bg-background sticky top-0 z-50">
+      <div className="container mx-auto px-4 flex items-center justify-between h-16">
+        <Link to="/" className="flex items-center">
+          <span className="text-2xl font-bold text-primary">ЗдоровьеПлюс</span>
+        </Link>
 
-          {/* Desktop menu */}
-          {!isMobile && (
-            <div className="hidden md:flex items-center space-x-4">
-              <Link to="/" className="px-3 py-2 text-sm font-medium hover:text-primary">
+        {/* Десктопное меню */}
+        <nav className="hidden md:flex items-center space-x-6">
+          <Link to="/" className="text-sm font-medium hover:text-primary transition-colors">
+            Главная
+          </Link>
+          <Link to="/nutrition" className="text-sm font-medium hover:text-primary transition-colors">
+            Питание
+          </Link>
+          <Link to="/fitness" className="text-sm font-medium hover:text-primary transition-colors">
+            Фитнес
+          </Link>
+          <Link to="/mental" className="text-sm font-medium hover:text-primary transition-colors">
+            Ментальное здоровье
+          </Link>
+          <Link to="/blog" className="text-sm font-medium hover:text-primary transition-colors">
+            Блог
+          </Link>
+          <Button>Регистрация</Button>
+        </nav>
+
+        {/* Мобильное меню */}
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <SheetTrigger asChild className="md:hidden">
+            <Button variant="ghost" size="icon">
+              <Menu />
+              <span className="sr-only">Меню</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right">
+            <nav className="flex flex-col space-y-4 mt-8">
+              <Link to="/" className="text-lg hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>
                 Главная
               </Link>
-              <Link to="#nutrition" className="px-3 py-2 text-sm font-medium hover:text-primary">
+              <Link to="/nutrition" className="text-lg hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>
                 Питание
               </Link>
-              <Link to="#exercises" className="px-3 py-2 text-sm font-medium hover:text-primary">
-                Упражнения
+              <Link to="/fitness" className="text-lg hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>
+                Фитнес
               </Link>
-              <Link to="#mental-health" className="px-3 py-2 text-sm font-medium hover:text-primary">
+              <Link to="/mental" className="text-lg hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>
                 Ментальное здоровье
               </Link>
-              <Link to="#about" className="px-3 py-2 text-sm font-medium hover:text-primary">
-                О нас
+              <Link to="/blog" className="text-lg hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>
+                Блог
               </Link>
-              <Button variant="default" size="sm">
-                Начать сейчас
-              </Button>
-            </div>
-          )}
-
-          {/* Mobile menu button */}
-          {isMobile && (
-            <div className="flex md:hidden">
-              <button
-                type="button"
-                className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:text-primary-foreground hover:bg-primary"
-                aria-controls="mobile-menu"
-                aria-expanded={mobileMenuOpen}
-                onClick={toggleMobileMenu}
-              >
-                <span className="sr-only">Открыть меню</span>
-                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
-          )}
-        </div>
+              <Button className="mt-4">Регистрация</Button>
+            </nav>
+          </SheetContent>
+        </Sheet>
       </div>
-
-      {/* Mobile menu */}
-      {isMobile && mobileMenuOpen && (
-        <div className="md:hidden" id="mobile-menu">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t">
-            <Link
-              to="/"
-              className="block px-3 py-2 rounded-md text-base font-medium hover:bg-primary hover:text-primary-foreground"
-              onClick={toggleMobileMenu}
-            >
-              Главная
-            </Link>
-            <Link
-              to="#nutrition"
-              className="block px-3 py-2 rounded-md text-base font-medium hover:bg-primary hover:text-primary-foreground"
-              onClick={toggleMobileMenu}
-            >
-              Питание
-            </Link>
-            <Link
-              to="#exercises"
-              className="block px-3 py-2 rounded-md text-base font-medium hover:bg-primary hover:text-primary-foreground"
-              onClick={toggleMobileMenu}
-            >
-              Упражнения
-            </Link>
-            <Link
-              to="#mental-health"
-              className="block px-3 py-2 rounded-md text-base font-medium hover:bg-primary hover:text-primary-foreground"
-              onClick={toggleMobileMenu}
-            >
-              Ментальное здоровье
-            </Link>
-            <Link
-              to="#about"
-              className="block px-3 py-2 rounded-md text-base font-medium hover:bg-primary hover:text-primary-foreground"
-              onClick={toggleMobileMenu}
-            >
-              О нас
-            </Link>
-            <Button variant="default" className="w-full mt-2">
-              Начать сейчас
-            </Button>
-          </div>
-        </div>
-      )}
-    </nav>
+    </header>
   );
 };
 
