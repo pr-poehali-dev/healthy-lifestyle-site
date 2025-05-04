@@ -1,126 +1,158 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import Icon from "@/components/ui/icon";
-import { HeroSection } from "@/components/HeroSection";
-import { HealthCategories } from "@/components/HealthCategories";
-import { HealthTips } from "@/components/HealthTips";
-import { OurMission } from "@/components/OurMission";
-import { CalorieCalculator } from "@/components/CalorieCalculator";
-import { Testimonials } from "@/components/Testimonials";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
-      <header className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <Icon name="Heart" className="text-primary" size={28} />
-          <h1 className="text-xl font-bold text-primary">ЗдоровьеПлюс</h1>
-        </div>
-        <nav className="hidden md:flex gap-6">
-          <a href="#" className="text-gray-700 hover:text-primary transition-colors">Главная</a>
-          <a href="#" className="text-gray-700 hover:text-primary transition-colors">Питание</a>
-          <a href="#" className="text-gray-700 hover:text-primary transition-colors">Физическая активность</a>
-          <a href="#" className="text-gray-700 hover:text-primary transition-colors">Психология</a>
-          <a href="#" className="text-gray-700 hover:text-primary transition-colors">Блог</a>
-        </nav>
-        <Button variant="outline" className="hidden md:flex">
-          <Icon name="User" className="mr-2" size={16} />
-          Войти
-        </Button>
-        <Button variant="ghost" size="icon" className="md:hidden">
-          <Icon name="Menu" />
-        </Button>
-      </header>
-
-      <main>
-        <HeroSection />
-        <OurMission />
-        <HealthCategories />
-        
-        <section className="container mx-auto px-4 py-16">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h2 className="text-3xl font-bold mb-6">Инструменты для здоровой жизни</h2>
-              <p className="text-gray-700 mb-4">
-                Используйте наши калькуляторы для отслеживания прогресса и достижения ваших целей в области здоровья.
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      
+      <main className="flex-grow">
+        {/* Герой секция */}
+        <section className="bg-gradient-to-r from-green-600 to-emerald-500 text-white py-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">
+                Путь к здоровой и счастливой жизни
+              </h1>
+              <p className="text-lg mb-8 opacity-90">
+                Научно-обоснованные рекомендации по питанию, физической активности, сну и 
+                ментальному здоровью для полноценной и активной жизни.
               </p>
-              <p className="text-gray-700 mb-6">
-                Рассчитайте свою суточную потребность в калориях на основе возраста, пола, веса и уровня активности.
-              </p>
-              <ul className="space-y-2 mb-6">
-                <li className="flex items-center">
-                  <Icon name="CheckCircle" className="text-primary mr-2" size={20} />
-                  <span>Точные расчеты на основе формулы Харриса-Бенедикта</span>
-                </li>
-                <li className="flex items-center">
-                  <Icon name="CheckCircle" className="text-primary mr-2" size={20} />
-                  <span>Учет индивидуальных параметров</span>
-                </li>
-                <li className="flex items-center">
-                  <Icon name="CheckCircle" className="text-primary mr-2" size={20} />
-                  <span>Корректировка под различные уровни активности</span>
-                </li>
-              </ul>
-              <Button size="lg">
-                <Icon name="Calculator" className="mr-2" size={16} />
-                Другие калькуляторы
-              </Button>
-            </div>
-            <div>
-              <CalorieCalculator />
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100">
+                  Начать сейчас
+                </Button>
+                <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
+                  Узнать больше
+                </Button>
+              </div>
             </div>
           </div>
         </section>
         
-        <HealthTips />
-        <Testimonials />
-        
-        <section className="container mx-auto px-4 py-16">
-          <h2 className="text-2xl font-bold text-center mb-8">Присоединяйтесь к нашему сообществу</h2>
-          <div className="max-w-xl mx-auto bg-white rounded-lg shadow-md p-8 text-center">
-            <p className="text-gray-600 mb-6">Получайте полезные советы, рецепты и программы тренировок прямо на вашу почту</p>
-            <div className="flex gap-2 max-w-md mx-auto">
-              <input 
-                type="email" 
-                placeholder="Ваш email" 
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-              />
-              <Button>Подписаться</Button>
+        {/* Секция преимуществ */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Комплексный подход к здоровью</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Мы объединяем экспертные знания в различных областях для создания целостного подхода к здоровью
+              </p>
             </div>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardContent className="p-6 flex flex-col items-center text-center">
+                  <div className="bg-green-100 p-4 rounded-full mb-4">
+                    <Icon name="Apple" className="text-green-600" size={32} />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Здоровое питание</h3>
+                  <p className="text-gray-600">
+                    Сбалансированные рационы, полезные рецепты и рекомендации по питанию от экспертов.
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardContent className="p-6 flex flex-col items-center text-center">
+                  <div className="bg-blue-100 p-4 rounded-full mb-4">
+                    <Icon name="Dumbbell" className="text-blue-600" size={32} />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Физическая активность</h3>
+                  <p className="text-gray-600">
+                    Эффективные тренировки для разных уровней подготовки, упражнения и программы.
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardContent className="p-6 flex flex-col items-center text-center">
+                  <div className="bg-purple-100 p-4 rounded-full mb-4">
+                    <Icon name="Brain" className="text-purple-600" size={32} />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Ментальное здоровье</h3>
+                  <p className="text-gray-600">
+                    Техники медитации, борьба со стрессом и поддержание позитивного мышления.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+        
+        {/* Секция "Последние статьи" */}
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="flex justify-between items-end mb-8">
+              <h2 className="text-3xl font-bold">Последние статьи</h2>
+              <Button variant="outline">Все статьи</Button>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <Card className="overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=500" 
+                  alt="Здоровое питание" 
+                  className="w-full h-48 object-cover"
+                />
+                <CardContent className="p-6">
+                  <div className="text-sm text-green-600 font-medium mb-2">Питание</div>
+                  <h3 className="text-xl font-semibold mb-2">10 правил здорового питания, которые работают</h3>
+                  <p className="text-gray-600 mb-4">Простые принципы, которые помогут улучшить ваш рацион и поддержать здоровье организма.</p>
+                  <Button variant="link" className="p-0">Читать дальше</Button>
+                </CardContent>
+              </Card>
+              
+              <Card className="overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=500" 
+                  alt="Тренировки" 
+                  className="w-full h-48 object-cover"
+                />
+                <CardContent className="p-6">
+                  <div className="text-sm text-blue-600 font-medium mb-2">Физическая активность</div>
+                  <h3 className="text-xl font-semibold mb-2">Эффективные тренировки для занятых людей</h3>
+                  <p className="text-gray-600 mb-4">Как найти время для физической активности, даже когда график переполнен делами.</p>
+                  <Button variant="link" className="p-0">Читать дальше</Button>
+                </CardContent>
+              </Card>
+              
+              <Card className="overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?q=80&w=500" 
+                  alt="Сон" 
+                  className="w-full h-48 object-cover"
+                />
+                <CardContent className="p-6">
+                  <div className="text-sm text-purple-600 font-medium mb-2">Здоровый сон</div>
+                  <h3 className="text-xl font-semibold mb-2">Как улучшить качество сна: 7 научных советов</h3>
+                  <p className="text-gray-600 mb-4">Проверенные техники и рекомендации для глубокого и восстанавливающего сна.</p>
+                  <Button variant="link" className="p-0">Читать дальше</Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+        
+        {/* Секция призыва к действию */}
+        <section className="py-16 bg-primary text-white">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl font-bold mb-4">Начните свой путь к здоровью сегодня</h2>
+            <p className="max-w-2xl mx-auto mb-8 opacity-90">
+              Присоединитесь к тысячам людей, которые уже изменили свою жизнь к лучшему с помощью наших рекомендаций
+            </p>
+            <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
+              Присоединиться бесплатно
+            </Button>
           </div>
         </section>
       </main>
-
-      <footer className="bg-gray-50 py-12">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-            <div className="flex items-center gap-2 mb-4 md:mb-0">
-              <Icon name="Heart" className="text-primary" size={28} />
-              <h1 className="text-xl font-bold text-primary">ЗдоровьеПлюс</h1>
-            </div>
-            <div className="flex gap-4">
-              <Button variant="ghost" size="icon">
-                <Icon name="Instagram" />
-              </Button>
-              <Button variant="ghost" size="icon">
-                <Icon name="Facebook" />
-              </Button>
-              <Button variant="ghost" size="icon">
-                <Icon name="Twitter" />
-              </Button>
-              <Button variant="ghost" size="icon">
-                <Icon name="Youtube" />
-              </Button>
-            </div>
-          </div>
-          <Separator />
-          <div className="pt-8 text-center text-gray-500 text-sm">
-            © 2025 ЗдоровьеПлюс. Все права защищены.
-          </div>
-        </div>
-      </footer>
+      
+      <Footer />
     </div>
   );
 };
